@@ -1,63 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../HomePage/Footer/Footer';
-import './common.css';
+import '../HomePage/common.css';
 
-// Import local background image
-import bgImage from '../../assets/Services_Provide/Website development.webp';
+// Website Development Page Components
+import WebsiteHero from '../Services/WebsiteDevelopment/WebsiteHero';
+import WebsiteProblem from '../Services/WebsiteDevelopment/WebsiteProblem';
+import WebsiteApproach from '../Services/WebsiteDevelopment/WebsiteApproach';
+import WebsiteWhatWeDo from '../Services/WebsiteDevelopment/WebsiteWhatWeDo';
+import WebsiteDesign from '../Services/WebsiteDevelopment/WebsiteDesign';
+import WebsiteFeatures from '../Services/WebsiteDevelopment/WebsiteFeatures';
+import WebsiteStructure from '../Services/WebsiteDevelopment/WebsiteStructure';
+import WebsiteSEO from '../Services/WebsiteDevelopment/WebsiteSEO';
+import WebsiteConversion from '../Services/WebsiteDevelopment/WebsiteConversion';
+import WebsiteWhoThisIsFor from '../Services/WebsiteDevelopment/WebsiteWhoThisIsFor';
+import WebsiteRedesign from '../Services/WebsiteDevelopment/WebsiteRedesign';
+import WebsiteHowWeWork from '../Services/WebsiteDevelopment/WebsiteHowWeWork';
+import WebsiteWhyAdsserv from '../Services/WebsiteDevelopment/WebsiteWhyAdsserv';
+import WebsiteFAQ from '../Services/WebsiteDevelopment/WebsiteFAQ';
+import WebsiteRelatedServices from '../Services/WebsiteDevelopment/WebsiteRelatedServices';
+import WebsiteFinalCTA from '../Services/WebsiteDevelopment/WebsiteFinalCTA';
 
 export default function WebsiteDevelopment() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="service-page-wrapper font-sans bg-white min-h-screen flex flex-col">
-      {/* Navbar at the top */}
+    <div className="font-sans bg-white min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Hero Header Banner */}
-      <div className="service-hero-banner relative w-full h-[350px] md:h-[450px] flex items-center justify-center mt-[90px]">
-        {/* Background Image Overlay */}
-        <div
-          className="absolute inset-0 bg-[#111827]/45 z-0"
-          style={{
-            backgroundImage: `url(${bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundBlendMode: 'overlay'
-          }}
-        ></div>
-        {/* You can add your background image here via inline style or CSS class */}
-
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Website Development
-          </h1>
-
-          {/* Breadcrumbs */}
-          <div className="flex items-center gap-3 text-lg font-medium">
-            <Link to="/" className="text-[#ff6b35] cursor-pointer hover:underline">Home</Link>
-            <span className="text-white">&gt;</span>
-            <span className="text-white">Website Development</span>
-          </div>
-        </div>
-
-        {/* Curved bottom overlay */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-[60px] md:h-[100px]" style={{ transform: "translateY(1px)" }}>
-            <path d="M0,120 C300,0 900,0 1200,120 Z" fill="#ffffff" />
-          </svg>
-        </div>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="flex-1 max-w-[1200px] w-full mx-auto px-4 py-20">
-        <h2 className="text-3xl font-bold text-[#111827] mb-6">About Website Development</h2>
-        <p className="text-gray-600 leading-relaxed max-w-3xl">
-          Detailed information and content for Website Development will go here.
-          You can replace this placeholder with your actual service descriptions, images, and features.
-        </p>
-      </div>
-
-      {/* Footer at the bottom */}
+      {/* Full editorial page sequence */}
+      <WebsiteHero />
+      <WebsiteProblem />
+      <WebsiteApproach />
+      <WebsiteWhatWeDo />
+      <WebsiteDesign />
+      <WebsiteFeatures />
+      <WebsiteStructure />
+      <WebsiteSEO />
+      <WebsiteConversion />
+      <WebsiteWhoThisIsFor />
+      <WebsiteRedesign />
+      <WebsiteHowWeWork />
+      <WebsiteWhyAdsserv />
+      <WebsiteFAQ />
+      <WebsiteRelatedServices />
+      <WebsiteFinalCTA />
       <Footer />
     </div>
   );

@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { LayoutGroup, motion } from 'motion/react';
+import { TextRotate } from '../../../Components/ui/text-rotate';
 import client1 from '../../../assets/clients/client1.webp';
 import client2 from '../../../assets/clients/client2.webp';
 import client3 from '../../../assets/clients/client3.webp';
@@ -101,12 +103,25 @@ const Client = () => {
 
   return (
     <section ref={sectionRef} className="client-section">
+      <div ref={headingRef} className="client-intro-block">
+        <div className="client-eyebrow-row">
+          <span className="client-eyebrow-icon">
+            <span style={{ color: '#f97316', fontSize: '12px', fontWeight: 'bold', lineHeight: 1 }}>+</span>
+          </span>
+          <span className="client-eyebrow-text">TRUSTED BY BRANDS WE'VE WORKED WITH</span>
+        </div>
+        <p className="client-supporting-copy">
+          Good work travels. Explore the brands, businesses, and projects we've helped move forward.
+        </p>
+      </div>
+
       <div className="client-inner">
 
         {/* LEFT: Heading */}
-        <div ref={headingRef} className="client-heading-block">
+        <div className="client-heading-block">
           <p className="client-heading-text">
-            Trusted By<br />Top Companies
+            TRUSTED BY BRANDS<br />WE'VE WORKED WITH
+
           </p>
           <span className="client-heading-arrow">
             <ArrowUpRight size={14} strokeWidth={2.5} />
@@ -129,6 +144,106 @@ const Client = () => {
         padding: 52px 54px 10px;
         background: #fff;
         font-family: var(--font-primary, 'Inter', sans-serif);
+      }
+
+      /* ── Intro Block (eyebrow + heading + supporting copy) ── */
+      .client-intro-block {
+        max-width: 1200px;
+        margin: 0 auto 28px;
+        padding: 0 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* ── Eyebrow row (dot + label) — matches Process.jsx ── */
+      .client-eyebrow-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+
+      .client-eyebrow-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        flex-shrink: 0;
+      }
+
+      .client-eyebrow-text {
+        font-size: 16px;
+        font-style: italic;
+        font-weight: 500;
+        color: #1a233a;
+        font-family: 'Playfair Display', Georgia, serif;
+        letter-spacing: 0;
+      }
+
+      /* ── Heading row with rotating text pill — matches Process.jsx ── */
+      .client-heading-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        font-size: 38px;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--text-dark, #1e2f57);
+        text-align: center;
+        flex-wrap: wrap;
+      }
+
+      .client-heading-text-main {
+        white-space: nowrap;
+      }
+
+      .client-heading-pill {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        white-space: pre-wrap;
+        color: #fff;
+        padding: 4px 16px;
+        background: var(--brand-navy, #1e2f57);
+        overflow: hidden;
+        border-radius: 12px;
+        justify-content: center;
+        font-size: 38px;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+
+      .client-heading-pill-split {
+        overflow: hidden;
+        padding-bottom: 2px;
+      }
+
+      .client-supporting-copy {
+        font-size: 15px;
+        font-weight: 500;
+        color: #6b7280;
+        margin: 6px auto 0;
+        max-width: 480px;
+        line-height: 1.55;
+        text-align: center;
+      }
+
+      @media (max-width: 640px) {
+        .client-heading-row,
+        .client-heading-pill {
+          font-size: 30px;
+          gap: 10px;
+        }
       }
 
       /* ── Inner Banner Card ── */

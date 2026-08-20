@@ -3,6 +3,8 @@ import { Monitor, Box, Users, Megaphone, Settings, Presentation, Smartphone, Arr
 import { ConnoisseurStackInteractor } from '../../../Components/ui/connoisseur-stack-interactor.jsx';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion, LayoutGroup } from 'framer-motion';
+import { TextRotate } from '../../../Components/ui/text-rotate';
 
 // Import service images for projects
 import socialMediaImg from "../../../assets/Services/Social Media Marketing.webp";
@@ -81,15 +83,48 @@ export default function Projectsection() {
       <div className="max-w-7xl mx-auto px-4 relative z-30">
 
         {/* Header */}
-        <div ref={headerRef} className="flex flex-col items-center mb-16">
-          <div className="flex items-center gap-2 mb-6 px-4 py-1.5 border border-gray-200 rounded-full bg-white shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ff5b5b]"></span>
-            <span className="text-[11px] font-bold text-[#ff5b5b] tracking-widest uppercase">Our Services</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ff5b5b]"></span>
+        <div ref={headerRef} className="flex flex-col items-center justify-center gap-3 mb-20 text-center relative z-20">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white border border-gray-200 shadow-sm flex-shrink-0">
+              <span style={{ color: '#f97316', fontSize: '12px', fontWeight: 'bold', lineHeight: 1 }}>+</span>
+            </span>
+            <span
+              className="text-[16px] italic font-medium uppercase tracking-wider"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: 'var(--text-dark-blue)' }}
+            >
+              SELECTED PROJECTS
+            </span>
           </div>
-          <h2 className="text-[38px] md:text-[50px] font-extrabold text-slate-900 text-center leading-[1.1] tracking-tight flex flex-wrap justify-center">
-            Recent <span className="text-white px-4 py-1 bg-[#1e2f57] overflow-hidden rounded-xl mx-2">Projects</span> ✦
-          </h2>
+
+          <LayoutGroup>
+            <motion.div
+              layout
+              className="flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-2 text-[36px] md:text-[50px] font-extrabold leading-[1.1] tracking-tight text-center flex-wrap"
+              style={{ color: 'var(--text-dark-blue)' }}
+            >
+              <motion.span layout transition={{ type: 'spring', damping: 30, stiffness: 400 }} className="whitespace-nowrap">
+                Ideas are nice.
+              </motion.span>
+              <TextRotate
+                texts={['Execution is better.', 'Results are better.', 'Impact matters.']}
+                mainClassName="text-white px-4 py-1 overflow-hidden rounded-xl justify-center shadow-md"
+                style={{ background: 'var(--text-dark-blue)' }}
+                staggerFrom="last"
+                initial={{ y: '100%' }}
+                animate={{ y: 0 }}
+                exit={{ y: '-120%' }}
+                staggerDuration={0.03}
+                splitLevelClassName="overflow-hidden pb-0.5"
+                transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+                rotationInterval={3000}
+              />
+            </motion.div>
+          </LayoutGroup>
+
+          <p className="text-[15px] font-medium mt-4 max-w-[680px] leading-relaxed" style={{ color: 'var(--text-gray)' }}>
+            See how strategy, creative, technology, content, and digital marketing come together across different projects.
+          </p>
         </div>
 
         {/* GSAP Connoisseur Stack Interactor Component */}

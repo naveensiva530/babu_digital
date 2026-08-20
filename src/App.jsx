@@ -6,6 +6,10 @@ import Home from "./Home";
 const AboutPage = lazy(() => import("./Components/Pages/AboutPage"));
 const ProjectsPage = lazy(() => import("./Components/Pages/ProjectsPage"));
 const BlogPage = lazy(() => import("./Components/Pages/BlogPage"));
+const BlogArticlePage = lazy(() => import("./Components/Pages/BlogArticlePage"));
+const FAQPage = lazy(() => import("./Components/Pages/FAQPage"));
+const ContactPage = lazy(() => import("./Components/Pages/ContactPage"));
+const ServicesPage = lazy(() => import("./Components/Pages/ServicesPage"));
 
 // Lazy load all 15 services
 const SocialMediaMarketing = lazy(() => import("./Components/Services_Provide/SocialMediaMarketing"));
@@ -40,6 +44,11 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogArticlePage />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/faqs" element={<FAQPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/services/social-media-marketing" element={<SocialMediaMarketing />} />
         <Route path="/services/performance-marketing" element={<PerformanceMarketing />} />
         <Route path="/services/website-development" element={<WebsiteDevelopment />} />

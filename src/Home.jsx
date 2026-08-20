@@ -5,10 +5,14 @@ import Client from "./Components/HomePage/Clients/Client";
 import Services from "./Components/HomePage/Services/Services";
 import About from "./Components/HomePage/About/About";
 import Process from "./Components/HomePage/Process/Process";
+import WhoWeWorkWith from "./Components/HomePage/WhoWeWorkWith/WhoWeWorkWith";
+import Industries from "./Components/HomePage/Industries/Industries";
+import WhyAdsserv from "./Components/HomePage/WhyAdsserv/WhyAdsserv";
 import Projects from "./Components/HomePage/Projects/Projectsection";
-import Blog from "./Components/HomePage/Blog/Blog";
 import Testimonial from "./Components/HomePage/Testimonial/Testimonial";
-import FAQ from "./Components/HomePage/FAQ/FAQ";
+import Numbers from "./Components/HomePage/Numbers/Numbers";
+import CreativeShowcase from "./Components/HomePage/CreativeShowcase/CreativeShowcase";
+import FinalCTA from "./Components/HomePage/FinalCTA/FinalCTA";
 import Email from "./Components/HomePage/Email/Email";
 import Footer from "./Components/HomePage/Footer/Footer";
 
@@ -50,12 +54,16 @@ export default function Home() {
       <HeroSection />
       <Client />
       <div id="about"><About /></div>
-      <Process />
       <div id="services"><Services /></div>
+      <Process />
+      <WhoWeWorkWith />
+      <Industries />
+      <WhyAdsserv />
       <div id="projects"><Projects /></div>
       <div id="testimonial"><Testimonial /></div>
-      <div id="blog"><Blog /></div>
-      <FAQ />
+      <Numbers />
+      <CreativeShowcase />
+      <FinalCTA />
       <Email />
       <Footer />
     </div>

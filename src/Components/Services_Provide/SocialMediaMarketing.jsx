@@ -1,63 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../HomePage/Footer/Footer';
-import './common.css';
+import '../HomePage/common.css';
 
-// Import local background image
-import bgImage from '../../assets/Services_Provide/Social media marketing.webp';
+// Social Media Marketing Page Components
+import SocialHero from '../Services/SocialMedia/SocialHero';
+import TheProblem from '../Services/SocialMedia/TheProblem';
+import OurApproach from '../Services/SocialMedia/OurApproach';
+import WhatWeDo from '../Services/SocialMedia/WhatWeDo';
+import Platforms from '../Services/SocialMedia/Platforms';
+import ContentStrategy from '../Services/SocialMedia/ContentStrategy';
+import WhoThisIsFor from '../Services/SocialMedia/WhoThisIsFor';
+import SocialIndustries from '../Services/SocialMedia/SocialIndustries';
+import MeasuringSuccess from '../Services/SocialMedia/MeasuringSuccess';
+import WhyAdsservSocial from '../Services/SocialMedia/WhyAdsservSocial';
+import SocialFunnel from '../Services/SocialMedia/SocialFunnel';
+import Collaboration from '../Services/SocialMedia/Collaboration';
+import SocialFAQ from '../Services/SocialMedia/SocialFAQ';
+import RelatedServices from '../Services/SocialMedia/RelatedServices';
+import FinalCTASocial from '../Services/SocialMedia/FinalCTASocial';
 
 export default function SocialMediaMarketing() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="service-page-wrapper font-sans bg-white min-h-screen flex flex-col">
-      {/* Navbar at the top */}
+    <div className="font-sans bg-white min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Hero Header Banner */}
-      <div className="service-hero-banner relative w-full h-[350px] md:h-[450px] flex items-center justify-center mt-[90px]">
-        {/* Background Image Overlay */}
-        <div
-          className="absolute inset-0 bg-[#111827]/45 z-0"
-          style={{
-            backgroundImage: `url(${bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundBlendMode: 'overlay'
-          }}
-        ></div>
-        {/* You can add your background image here via inline style or CSS class */}
-
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Social Media Marketing
-          </h1>
-
-          {/* Breadcrumbs */}
-          <div className="flex items-center gap-3 text-lg font-medium">
-            <Link to="/" className="text-[#ff6b35] cursor-pointer hover:underline">Home</Link>
-            <span className="text-white">&gt;</span>
-            <span className="text-white">Social Media Marketing</span>
-          </div>
-        </div>
-
-        {/* Curved bottom overlay */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-[60px] md:h-[100px]" style={{ transform: "translateY(1px)" }}>
-            <path d="M0,120 C300,0 900,0 1200,120 Z" fill="#ffffff" />
-          </svg>
-        </div>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="flex-1 max-w-[1200px] w-full mx-auto px-4 py-20">
-        <h2 className="text-3xl font-bold text-[#111827] mb-6">About Social Media Marketing</h2>
-        <p className="text-gray-600 leading-relaxed max-w-3xl">
-          Detailed information and content for Social Media Marketing will go here.
-          You can replace this placeholder with your actual service descriptions, images, and features.
-        </p>
-      </div>
-
-      {/* Footer at the bottom */}
+      {/* Full editorial page sequence */}
+      <SocialHero />
+      <TheProblem />
+      <OurApproach />
+      <WhatWeDo />
+      <Platforms />
+      <ContentStrategy />
+      <WhoThisIsFor />
+      <SocialIndustries />
+      <MeasuringSuccess />
+      <WhyAdsservSocial />
+      <SocialFunnel />
+      <Collaboration />
+      <SocialFAQ />
+      <RelatedServices />
+      <FinalCTASocial />
       <Footer />
     </div>
   );

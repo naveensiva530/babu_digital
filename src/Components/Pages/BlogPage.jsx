@@ -1,53 +1,78 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Search } from 'lucide-react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../HomePage/Footer/Footer';
-import Blog from '../HomePage/Blog/Blog';
+import BlogHero from '../Blog/BlogHero';
+import FeaturedBlog from '../Blog/FeaturedBlog';
+import LatestInsights from '../Blog/LatestInsights';
+import BlogFinalCTA from '../Blog/BlogFinalCTA';
+import { blogPosts } from '../Blog/blogData';
 import '../HomePage/common.css';
 
 export default function BlogPage() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const filteredPosts = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return blogPosts;
+    return blogPosts.filter(
+      (post) =>
+        post.title.toLowerCase().includes(q) ||
+        post.excerpt.toLowerCase().includes(q) ||
+        post.category.toLowerCase().includes(q)
+    );
+  }, [searchQuery]);
+
+  const featuredPost = filteredPosts.find((p) => p.featured) ?? filteredPosts[0] ?? null;
+  const latestPosts = filteredPosts.filter((p) => p.id !== featuredPost?.id);
+
   return (
-    <div className="font-sans bg-white min-h-screen flex flex-col">
+    <div className="font-sans bg-white min-h-screen flex flex-col selection:bg-orange-500 selection:text-white">
       <Navbar />
-
-      {/* Hero Header Banner */}
-      <div className="relative w-full h-[350px] md:h-[450px] flex items-center justify-center mt-[90px]">
-        {/* Background Image with Dark Overlay */}
-        <div 
-          className="absolute inset-0 bg-[#111827]/85 z-0"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundBlendMode: 'overlay'
-          }}
-        ></div>
-        
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Our Blog
-          </h1>
-          
-          {/* Breadcrumbs */}
-          <div className="flex items-center gap-3 text-lg font-medium">
-            <Link to="/" className="text-[#ff6b35] cursor-pointer hover:underline">Home</Link>
-            <span className="text-white">&gt;</span>
-            <span className="text-white">Blog</span>
-          </div>
-        </div>
       
-        {/* Curved bottom overlay */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-[60px] md:h-[100px]" style={{ transform: "translateY(1px)" }}>
-            <path d="M0,120 C300,0 900,0 1200,120 Z" fill="#ffffff" />
-          </svg>
-        </div>
-      </div>
+      <main className="flex-1">
+        <BlogHero />
 
-      {/* Main Content Area */}
-      <div className="flex-1 w-full pb-10">
-        <Blog />
-      </div>
+        {/* ── SEARCH BAR (Editorial Layout below curve) ───────────────────────── */}
+        <section className="w-full bg-white pt-10 pb-4 px-4 font-primary">
+          <div className="max-w-[800px] mx-auto text-center flex flex-col items-center">
+            {/* Search Bar Container */}
+            <div
+              className="relative w-full max-w-[700px] flex items-center bg-white rounded-full transition-shadow duration-300 shadow-sm border border-gray-100 hover:shadow-md focus-within:shadow-md focus-within:border-gray-200"
+              style={{ padding: '4px' }}
+            >
+              <div className="pl-5 pr-2 flex items-center justify-center">
+                <Search className="w-5 h-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search articles... (e.g. SEO, strategy, social media)"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full py-4 bg-transparent outline-none text-[15px] md:text-[16px] font-medium text-gray-700 placeholder-gray-400"
+              />
+              <div className="pr-4 pl-2 flex items-center">
+                <span className="text-[12px] font-bold text-gray-300 whitespace-nowrap">
+                  {filteredPosts.length} articles
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FEATURED BLOG ───────────────────────── */}
+        {featuredPost && <FeaturedBlog post={featuredPost} />}
+
+        {/* ── LATEST INSIGHTS (Grid) ───────────────────────── */}
+        <LatestInsights posts={latestPosts} />
+
+        {/* ── CTA ───────────────────────── */}
+        <BlogFinalCTA />
+      </main>
 
       <Footer />
     </div>

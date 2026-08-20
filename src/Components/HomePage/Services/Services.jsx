@@ -37,80 +37,60 @@ import {
 const services = [
   {
     num: "01", tag: "MARKETING", title: "Social Media\nMarketing", icon: Globe,
-    image: socialMediaImg,
+    image: socialMediaImg, desc: "Build a social presence with strategy, content, community, and platform-native creative.", cta: "Explore Social Media Marketing", path: "/services/social-media-marketing"
   },
   {
     num: "02", tag: "ADS", title: "Performance\nMarketing", icon: ArrowUpRight,
-    image: performanceImg,
+    image: performanceImg, desc: "Put paid campaigns, targeting, creative testing, and conversion thinking behind your growth goals.", cta: "Explore Performance Marketing", path: "/services/performance-marketing"
   },
   {
     num: "03", tag: "WEB", title: "Website\nDevelopment", icon: UserCog,
-    image: websiteDevImg,
+    image: websiteDevImg, desc: "Build websites that look sharp, work smoothly, communicate clearly, and give visitors a reason to take the next step.", cta: "Explore Website Development", path: "/services/website-development"
   },
   {
     num: "04", tag: "INFLUENCER", title: "Influencer\nMarketing", icon: PersonStanding,
-    image: influencerImg,
+    image: influencerImg, desc: "Connect brands with relevant creators and audiences through purposeful creator-led campaigns.", cta: "Explore Influencer Marketing", path: "/services/influencer-marketing"
   },
   {
     num: "05", tag: "SEO", title: "SEO\nServices", icon: Megaphone,
-    image: seoImg,
+    image: seoImg, desc: "Make your brand easier to discover through search-focused strategy, technical optimisation, content, and authority building.", cta: "Explore SEO Services", path: "/services/seo-services"
   },
   {
     num: "06", tag: "VIDEO", title: "Video\nProduction", icon: UserCog,
-    image: videoImg,
+    image: videoImg, desc: "Turn ideas, products, people, and stories into visual content built for modern digital platforms.", cta: "Explore Video Production", path: "/services/video-production"
   },
   {
     num: "07", tag: "BRANDING", title: "Branding\nSolutions", icon: Megaphone,
-    image: brandingImg,
+    image: brandingImg, desc: "Create a clearer identity, stronger visual language, and more consistent brand experience.", cta: "Explore Branding Solutions", path: "/services/branding-solutions"
   },
   {
     num: "08", tag: "CONSULTING", title: "Digital\nConsulting", icon: PersonStanding,
-    image: consultingImg,
+    image: consultingImg, desc: "Get practical digital direction when you need clarity on strategy, channels, technology, or growth.", cta: "Explore Digital Consulting", path: "/services/digital-consulting"
   },
   {
     num: "09", tag: "CONTENT", title: "Content\nWriting", icon: Megaphone,
-    image: contentImg,
+    image: contentImg, desc: "Give your brand useful, persuasive, search-friendly content that sounds like a human wrote it.", cta: "Explore Content Writing", path: "/services/content-writing"
   },
   {
     num: "10", tag: "SOCIAL", title: "Instagram\nMarketing", icon: Globe,
-    image: instagramImg,
-  },
-  {
-    num: "11", tag: "HEALTH", title: "Health\nCare", icon: UserCog,
-    image: healthImg,
-  },
-  {
-    num: "12", tag: "REAL ESTATE", title: "Real\nEstate", icon: Globe,
-    image: realEstateImg,
-  },
-  {
-    num: "13", tag: "EDUCATION", title: "Education\nSector", icon: PersonStanding,
-    image: educationImg,
-  },
-  {
-    num: "14", tag: "TECH", title: "IT-Tech\nSAAS", icon: Globe,
-    image: saasImg,
-  },
-  {
-    num: "15", tag: "BEAUTY", title: "Beauty &\nSalon", icon: UserCog,
-    image: beautyImg,
-  },
+    image: instagramImg, desc: "Build an Instagram presence around content, audience behaviour, creative formats, and platform-specific strategy.", cta: "Explore Instagram Marketing", path: "/services/instagram-marketing"
+  }
 ];
 
 // ─── carousel config ──────────────────────────────────────────
 const CARDS_PER_VIEW = 4;
-const CLONE_COUNT    = CARDS_PER_VIEW;   // 4 clones on each side
-const TOTAL          = services.length;  // 15
-const EXT_LEN        = TOTAL + CLONE_COUNT * 2; // 23
+const CLONE_COUNT = CARDS_PER_VIEW;   // 4 clones on each side
+const TOTAL = services.length;  // 15
+const EXT_LEN = TOTAL + CLONE_COUNT * 2; // 23
 
 const extendedCards = [
   ...services.slice(-CLONE_COUNT).map((s, i) => ({ ...s, _key: `cs${i}` })),
-  ...services.map((s)             => ({ ...s, _key: s.num })),
+  ...services.map((s) => ({ ...s, _key: s.num })),
   ...services.slice(0, CLONE_COUNT).map((s, i) => ({ ...s, _key: `ce${i}` })),
 ];
 
 export default function Services() {
-  const [idx, setIdx]           = useState(CLONE_COUNT); // start at real card 0
+  const [idx, setIdx] = useState(CLONE_COUNT); // start at real card 0
   const [animated, setAnimated] = useState(true);
   const [hoveredKey, setHoveredKey] = useState(null);
   const trackRef = useRef(null); // ref to the sliding track div
@@ -128,7 +108,7 @@ export default function Services() {
     setAnimated(false);
     setIdx((prev) => {
       if (prev >= TOTAL + CLONE_COUNT) return prev - TOTAL; // overshot right
-      if (prev < CLONE_COUNT)          return prev + TOTAL; // overshot left
+      if (prev < CLONE_COUNT) return prev + TOTAL; // overshot left
       return prev;
     });
   }, []);
@@ -201,10 +181,10 @@ export default function Services() {
       <div className="relative mx-auto max-w-7xl z-20">
 
         {/* ── TOP BAR: heading CENTERED (Process.jsx style), arrows RIGHT ── */}
-        <div ref={headingRef} className="relative mb-14 flex flex-col items-center justify-center text-center">
+        <div ref={headingRef} className="relative mb-14 flex flex-col items-start justify-start text-left">
 
           {/* ARROWS — absolutely right-positioned */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-4">
+          <div className="absolute right-0 top-0 flex items-center gap-4">
             <button
               onClick={prev}
               className="flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl active:scale-95"
@@ -221,33 +201,33 @@ export default function Services() {
             </button>
           </div>
 
-          {/* label */}
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-2 h-2 rounded-full inline-block" style={{ background: "var(--accent-orange)" }} />
-            <span className="text-[13px] uppercase tracking-widest font-semibold" style={{ color: "var(--text-gray)" }}>Our Services</span>
+          {/* Eyebrow — ⊕ icon + italic Playfair serif */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white border border-gray-200 shadow-sm flex-shrink-0">
+              <span style={{ color: '#f97316', fontSize: '12px', fontWeight: 'bold', lineHeight: 1 }}>+</span>
+            </span>
+            <span
+              className="text-[16px] italic font-medium text-[#1a233a]"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              OUR CAPABILITIES
+            </span>
           </div>
 
-          {/* title — Process.jsx style with dark pill badge */}
+          {/* title */}
           <h2
-            className="text-[38px] md:text-[50px] font-extrabold leading-[1.15] tracking-tight"
+            className="text-[38px] md:text-[46px] font-extrabold leading-[1.15] tracking-tight max-w-[700px]"
             style={{ color: "var(--text-dark-blue)" }}
           >
-            Services We&apos;re{" "}
-            <span
-              className="px-4 py-1 rounded-xl inline-block"
-              style={{ background: "var(--text-dark-blue)", color: "#fff" }}
-            >
-              Offering
-            </span>
-            {" "}to Customers
+            Everything your digital presence needs. Nothing it doesn't.
           </h2>
 
           {/* subtitle */}
           <p
-            className="text-[15px] font-medium mt-3 max-w-[480px] leading-relaxed"
+            className="text-[15px] font-medium mt-3 max-w-[560px] leading-relaxed"
             style={{ color: "var(--text-gray)" }}
           >
-            From social media to SEO — we cover every corner of digital growth.
+            Different businesses need different combinations of digital marketing. Start with the problem, then build the right solution around it.
           </p>
         </div>
 
@@ -276,7 +256,7 @@ export default function Services() {
               return (
                 <div
                   key={s._key}
-                  className="services-card-item group relative flex-shrink-0 px-4"
+                  className="services-card-item group relative flex-shrink-0 px-4 flex flex-col"
                   style={{
                     width: `calc(100% / ${EXT_LEN})`,
                     transform: isHovered ? "translateY(-12px)" : "translateY(0)",
@@ -308,7 +288,7 @@ export default function Services() {
 
                   {/* CARD */}
                   <div
-                    className="relative overflow-hidden border shadow-2xl rounded-tl-[150px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-[20px]"
+                    className="relative overflow-hidden border shadow-2xl rounded-tl-[150px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-[20px] flex flex-col flex-1"
                     style={{
                       background: isHovered ? "var(--text-dark-blue)" : "var(--primary-white)",
                       border: isHovered ? "1px solid transparent" : "1px solid var(--border-gray-light)",
@@ -345,16 +325,25 @@ export default function Services() {
                       >
                         {s.title}
                       </h3>
+                      <p
+                        className="mt-3 text-[13px] leading-relaxed font-medium"
+                        style={{
+                          color: isHovered ? "rgba(255,255,255,0.8)" : "var(--text-gray)",
+                          transition: "color 0.4s ease",
+                        }}
+                      >
+                        {s.desc}
+                      </p>
                     </div>
 
-                    {/* IMAGE */}
-                    <div className="relative mt-4">
-                      <div className="relative overflow-hidden rounded-tr-[150px]">
+                    {/* IMAGE — fills remaining card space */}
+                    <div className="relative mt-4 flex-1" style={{ minHeight: 0 }}>
+                      <div className="relative overflow-hidden rounded-tr-[150px] h-full">
                         <img
                           src={s.image}
                           alt={s.title.replace("\n", " ")}
                           style={{
-                            height: "15rem",
+                            height: "100%",
                             width: "100%",
                             objectFit: "cover",
                             transform: isHovered ? "scale(1.1)" : "scale(1)",
@@ -392,7 +381,30 @@ export default function Services() {
           </div>
         </div>
 
+        {/* Explore All Services — below carousel */}
+        <div className="flex justify-center mt-12">
+          <button className="know-more-btn">
+            <span>Explore All Services</span>
+            <div className="know-more-icon">
+              <ArrowUpRight className="w-5 h-5" strokeWidth={2.5} />
+            </div>
+          </button>
+        </div>
+
       </div>
+
+      {/* ── Bottom Arch Curve ── */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none z-10">
+        <svg
+          viewBox="0 0 1440 130"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          className="block w-full h-[80px] md:h-[130px]"
+        >
+          <path d="M0,130 Q720,-10 1440,130 L1440,130 L0,130 Z" fill="#ffffff" />
+        </svg>
+      </div>
+
     </section>
   );
 }

@@ -119,28 +119,29 @@ export default function About() {
                 className="text-[16px] italic text-[#1a233a] font-medium"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                About us
+                NOT ANOTHER DIGITAL AGENCY
+
               </span>
             </div>
 
             {/* Headline */}
             <h2 className="text-[#1a233a] mb-6">
               <span
-                className="block text-[40px] md:text-[50px] lg:text-[56px] italic font-medium leading-[1.1] mb-2"
+                className="block text-[40px] md:text-[50px] lg:text-[36px] italic font-medium leading-[1.1] mb-2"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Crafting Powerful
+               The internet changed. Your marketing should too.
               </span>
 
             </h2>
 
             {/* Description */}
             <p className="text-[15px] md:text-[16px] leading-relaxed mb-8 max-w-[540px] text-gray-500 font-medium">
-              We help ambitious brands break boundaries with bold design and smart
-              strategies. Our creative team is driven by innovation and fueled by
-              passion, delivering solutions that capture attention and drive growth.
-              Whether you're a startup or an established business, we bring your
-              vision to life.
+              People don't experience brands in neatly separated marketing channels.
+They discover them through a Reel. Search for them on Google. See an ad five minutes later. Check the website. Ask a friend. Read reviews. Watch a creator talk about them. Then decide.
+That's why ADSSERV doesn't treat digital marketing as a collection of disconnected services.
+We connect the creative, strategic, technical, and performance sides of digital to create marketing that makes sense as a whole.
+
             </p>
 
             {/* CTA - Uiverse button style with brand colors */}
@@ -148,7 +149,7 @@ export default function About() {
               <button
                 className="know-more-btn"
               >
-                <span>Know More Us</span>
+                <span>Meet ADSSERV</span>
                 <div className="know-more-icon">
                   <ArrowUpRight className="w-5 h-5" strokeWidth={2.5} />
                 </div>
@@ -158,19 +159,26 @@ export default function About() {
             {/* Bottom Row: Stats & Image */}
             <div ref={statsRef} className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 mt-auto">
               {/* Stat */}
-              <div className="flex items-start gap-1 max-w-[220px]">
-                <h4 className="text-[64px] md:text-[80px] font-black leading-none text-[#1a233a] tracking-tighter">
-                  10
-                </h4>
-                <div className="flex flex-col pt-1">
-                  <span className="text-[32px] md:text-[40px] font-black leading-none text-[#1a233a] -ml-1">
-                    +
-                  </span>
-                  <p className="text-[12px] md:text-[13px] leading-[1.4] mt-1 text-gray-500 font-medium max-w-[130px]">
-                    Trusted Experience Built on Successful Projects.
-                  </p>
-                </div>
-              </div>
+              
+              {/* Highlights — 4 guiding principles */}
+              <ul className="flex flex-col gap-3 max-w-[380px] w-full sm:w-auto">
+                {[
+                  "Think audience first.",
+                  "Build for the platform.",
+                  "Create with purpose.",
+                  "Measure what matters.",
+                ].map((point) => (
+                  <li
+                    key={point}
+                    className="flex items-center gap-3 text-[13px] md:text-[17px] font-semibold text-[#1a233a]"
+                  >
+                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#e08326]/10 flex-shrink-0">
+                      <ArrowUpRight size={12} strokeWidth={3} className="text-[#e08326]" />
+                    </span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
 
               {/* Small right-side image (camera woman / phone hand) */}
               <div

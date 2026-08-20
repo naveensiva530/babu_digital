@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
-import { LayoutGroup, motion } from 'framer-motion';
-import { TextRotate } from '../../ui/text-rotate';
+// Removed unused framer-motion imports
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion, LayoutGroup } from 'framer-motion';
+import { TextRotate } from '../../../Components/ui/text-rotate';
 import '../common.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -132,24 +133,34 @@ export default function Testimonial() {
   return (
     <section ref={sectionRef} className="w-full py-12 md:py-20 relative overflow-hidden bg-white font-sans">
 
-      {/* ── Heading matching Process.jsx format ── */}
-      <div className="flex flex-col items-center justify-center gap-3 mb-10 md:mb-14 relative z-10 px-4">
-
+      {/* ── Heading ── */}
+      <div className="flex flex-col items-center justify-center gap-3 mb-20 text-center px-4 relative z-20">
+        {/* Eyebrow */}
+        <div className="flex items-center gap-2 mb-4">
+          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white border border-gray-200 shadow-sm flex-shrink-0">
+            <span style={{ color: '#f97316', fontSize: '12px', fontWeight: 'bold', lineHeight: 1 }}>+</span>
+          </span>
+          <span
+            className="text-[16px] italic font-medium uppercase tracking-wider"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: 'var(--text-dark-blue)' }}
+          >
+            WHAT CLIENTS THINK
+          </span>
+        </div>
 
         <LayoutGroup>
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-1 text-[32px] sm:text-[42px] md:text-[48px] font-extrabold leading-[1.15] tracking-tight text-center flex-wrap"
             layout
-            style={{ color: 'var(--brand-navy)' }}
+            className="flex flex-col xl:flex-row items-center justify-center gap-x-3 gap-y-2 text-[36px] md:text-[50px] font-extrabold leading-[1.1] tracking-tight text-center flex-wrap"
+            style={{ color: 'var(--text-dark-blue)' }}
           >
             <motion.span layout transition={{ type: 'spring', damping: 30, stiffness: 400 }} className="whitespace-nowrap">
-              What Our Clients
+              The work should speak for itself.
             </motion.span>
-
             <TextRotate
-              texts={['Say ✦', 'Share', 'Experience', 'Achieve', 'Think']}
+              texts={['Our clients can add context.', 'Their success speaks volumes.', 'They can tell you more.']}
               mainClassName="text-white px-4 py-1 overflow-hidden rounded-xl justify-center shadow-md"
-              style={{ background: 'var(--brand-navy)' }}
+              style={{ background: 'var(--text-dark-blue)' }}
               staggerFrom="last"
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
@@ -157,10 +168,14 @@ export default function Testimonial() {
               staggerDuration={0.03}
               splitLevelClassName="overflow-hidden pb-0.5"
               transition={{ type: 'spring', damping: 30, stiffness: 400 }}
-              rotationInterval={2500}
+              rotationInterval={3000}
             />
           </motion.div>
         </LayoutGroup>
+
+        <p className="text-[15px] font-medium mt-4 max-w-[680px] leading-relaxed" style={{ color: 'var(--text-gray)' }}>
+          Good partnerships are measured by more than a finished deliverable. They are built through communication, thinking, execution, and the ability to keep improving.
+        </p>
       </div>
 
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 relative">

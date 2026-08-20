@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import imgPlaceholder from '../../../assets/j.png';
 import { ArrowRight } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -67,28 +66,20 @@ export default function Email() {
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-[3px] rounded-full" style={{ background: '#e08326' }}></div>
-            <span className="text-xs font-bold tracking-[5px] uppercase" style={{ color: '#e08326' }}>CONTACT US</span>
+            <span className="text-xs font-bold tracking-[5px] uppercase" style={{ color: '#e08326' }}>NEWSLETTER</span>
             <div className="w-8 h-[3px] rounded-full" style={{ background: '#e08326' }}></div>
           </div>
 
           {/* Big headline with pill image */}
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 leading-none tracking-tighter mb-2">
-            <span className="text-[52px] md:text-[88px] font-extrabold" style={{ color: '#1e2f57' }}>Let's Chat</span>
-            <div className="w-36 md:w-56 h-16 md:h-24 rounded-full overflow-hidden inline-flex relative shadow-xl" style={{ border: '4px solid #e08326' }}>
-              <img src={imgPlaceholder} alt="Chat with us" className="w-full h-full object-cover" />
-            </div>
-            <span className="text-[52px] md:text-[88px] font-extrabold" style={{ color: '#1e2f57' }}>with us.</span>
-          </div>
-
-          <div className="text-[52px] md:text-[88px] font-extrabold tracking-tighter mb-4" style={{ color: '#e08326' }}>
-            Digital agency
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 leading-none tracking-tighter mb-4">
+            <span className="text-[44px] md:text-[76px] font-extrabold" style={{ color: '#1e2f57' }}>ADSSERV INSIGHTS</span>
           </div>
         </div>
 
         {/* Form section (Animated together) */}
         <div ref={formRef} className="flex flex-col items-center w-full">
-          <p className="text-[15px] max-w-lg mb-12 leading-relaxed" style={{ color: 'rgba(30,47,87,0.6)' }}>
-            Ready to take your digital presence to the next level? Drop your email and let's start a conversation.
+          <p className="text-[15px] max-w-lg mb-12 leading-relaxed font-medium" style={{ color: 'rgba(30,47,87,0.6)' }}>
+            Get clear, practical thinking on digital marketing, platforms, and performance.
           </p>
 
           {/* Subscribe form */}

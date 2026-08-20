@@ -1,63 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../HomePage/Footer/Footer';
-import './common.css';
+import '../HomePage/common.css';
 
-// Import local background image
-import bgImage from '../../assets/Services_Provide/Influncer Marketing.webp';
+import InfluencerHero from '../Services/InfluencerMarketing/InfluencerHero';
+import TheChallenge from '../Services/InfluencerMarketing/TheChallenge';
+import OurApproach from '../Services/InfluencerMarketing/OurApproach';
+import WhatWeDo from '../Services/InfluencerMarketing/WhatWeDo';
+import CreatorTypes from '../Services/InfluencerMarketing/CreatorTypes';
+import PlatformFit from '../Services/InfluencerMarketing/PlatformFit';
+import CreativeDirection from '../Services/InfluencerMarketing/CreativeDirection';
+import WhatWeMeasure from '../Services/InfluencerMarketing/WhatWeMeasure';
+import WhoThisIsFor from '../Services/InfluencerMarketing/WhoThisIsFor';
+import TrustMatters from '../Services/InfluencerMarketing/TrustMatters';
+import CampaignProcess from '../Services/InfluencerMarketing/CampaignProcess';
+import ContentValue from '../Services/InfluencerMarketing/ContentValue';
+import WhyAdsservInfluencer from '../Services/InfluencerMarketing/WhyAdsservInfluencer';
+import InfluencerFAQ from '../Services/InfluencerMarketing/InfluencerFAQ';
+import RelatedServices from '../Services/InfluencerMarketing/RelatedServices';
+import FinalCTAInfluencer from '../Services/InfluencerMarketing/FinalCTAInfluencer';
 
 export default function InfluencerMarketing() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="service-page-wrapper font-sans bg-white min-h-screen flex flex-col">
-      {/* Navbar at the top */}
+    <div className="font-sans bg-white min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Hero Header Banner */}
-      <div className="service-hero-banner relative w-full h-[350px] md:h-[450px] flex items-center justify-center mt-[90px]">
-        {/* Background Image Overlay */}
-        <div
-          className="absolute inset-0 bg-[#111827]/45 z-0"
-          style={{
-            backgroundImage: `url(${bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundBlendMode: 'overlay'
-          }}
-        ></div>
-        {/* You can add your background image here via inline style or CSS class */}
-        
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Influencer Marketing
-          </h1>
-          
-          {/* Breadcrumbs */}
-          <div className="flex items-center gap-3 text-lg font-medium">
-            <Link to="/" className="text-[#ff6b35] cursor-pointer hover:underline">Home</Link>
-            <span className="text-white">&gt;</span>
-            <span className="text-white">Influencer Marketing</span>
-          </div>
-        </div>
-      
-        {/* Curved bottom overlay */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-[60px] md:h-[100px]" style={{ transform: "translateY(1px)" }}>
-            <path d="M0,120 C300,0 900,0 1200,120 Z" fill="#ffffff" />
-          </svg>
-        </div>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="flex-1 max-w-[1200px] w-full mx-auto px-4 py-20">
-        <h2 className="text-3xl font-bold text-[#111827] mb-6">About Influencer Marketing</h2>
-        <p className="text-gray-600 leading-relaxed max-w-3xl">
-          Detailed information and content for Influencer Marketing will go here.
-          You can replace this placeholder with your actual service descriptions, images, and features.
-        </p>
-      </div>
-
-      {/* Footer at the bottom */}
+      <InfluencerHero />
+      <TheChallenge />
+      <OurApproach />
+      <WhatWeDo />
+      <CreatorTypes />
+      <PlatformFit />
+      <CreativeDirection />
+      <WhatWeMeasure />
+      <WhoThisIsFor />
+      <TrustMatters />
+      <CampaignProcess />
+      <ContentValue />
+      <WhyAdsservInfluencer />
+      <InfluencerFAQ />
+      <RelatedServices />
+      <FinalCTAInfluencer />
       <Footer />
     </div>
   );
