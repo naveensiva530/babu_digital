@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ButtonWithIcon from '../../../components/ui/button-with-icon';
+import ButtonWithIcon from '../../../Components/ui/button-with-icon';
 import { ArrowUpRight, Home, ChevronRight } from 'lucide-react';
 import bgImage from '../../../assets/Services/Influncer Marketing.webp';
 import ScrollRevealHeading from './ScrollRevealHeading';

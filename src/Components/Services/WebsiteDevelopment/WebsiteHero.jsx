@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ButtonWithIcon from '../../../components/ui/button-with-icon';
+import ButtonWithIcon from '../../../Components/ui/button-with-icon';
 import { ArrowUpRight, Home, ChevronRight } from 'lucide-react';
 import bgImage from '../../../assets/Services_Provide/Website Development.webp';
 import ScrollRevealHeading from './ScrollRevealHeading';

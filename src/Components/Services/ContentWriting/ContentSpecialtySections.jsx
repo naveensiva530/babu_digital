@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import ButtonWithIcon from '../../../components/ui/button-with-icon';
+import ButtonWithIcon from '../../../Components/ui/button-with-icon';
 import ScrollRevealHeading from './ScrollRevealHeading';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

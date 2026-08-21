@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import ButtonWithIcon from '../../../components/ui/button-with-icon';
+import ButtonWithIcon from '../../../Components/ui/button-with-icon';
 import '../../../Components/HomePage/common.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
